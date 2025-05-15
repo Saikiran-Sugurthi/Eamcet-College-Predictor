@@ -30,7 +30,7 @@ app.post('/api/predict-colleges', async (req, res) => {
   const { rank, categoryGender, branchName } = req.body;
 console.log("Received input:", { rank, categoryGender, branchName });
   if (!rank || !categoryGender || !branchName) {
-    return res.status(400).json({ error: 'Missing required fields' });
+    return res.status(400).json({ error: 'Missing required fields...' });
   }
 
   const numericRank = Number(rank);
