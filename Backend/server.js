@@ -22,7 +22,7 @@ function getBufferRange(rank) {
 }
 //test route
 app.get("/", (req, res) => {
-  res.send("EAMCET College Predictor API is running!");
+  res.send("EAMCET College Predictor API is running!!");
 });
 
 // College prediction
