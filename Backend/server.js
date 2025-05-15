@@ -20,6 +20,10 @@ function getBufferRange(rank) {
   const buffer = Math.max(minBuffer, Math.floor(rank * bufferPercentage));
   return [Math.max(1, rank - buffer), rank + buffer];
 }
+//test route
+app.get("/", (req, res) => {
+  res.send("EAMCET College Predictor API is running!");
+});
 
 // College prediction
 app.post('/api/predict-colleges', async (req, res) => {
