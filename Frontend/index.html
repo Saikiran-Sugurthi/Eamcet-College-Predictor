@@ -267,7 +267,7 @@
     document.getElementById('results').innerHTML = '';
 
     try {
-      const response = await fetch('http://localhost:5000/api/predict-colleges', {
+      const response = await fetch('https://eamcet-college-predictor-api2.vercel.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rank, categoryGender, branchName })
