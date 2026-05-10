@@ -1,0 +1,164 @@
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f9f9f9, #eaeef2);
+      margin: 0;
+      padding: 40px 20px;
+      color: #2c3e50;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #fff;
+      background: rgb(255, 90, 95);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      background-color: #fdfdfd;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box; /* added for input fix */
+    }
+
+    input:focus, select:focus {
+      border-color: rgb(255, 90, 95);
+      box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.2);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background:rgb(255, 90, 95);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #results {
+      margin-top: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer {
+      margin-top: 60px;
+      padding: 20px 10px;
+      text-align: center;
+      background: #f5d2d5;
+      font-size: 14px;
+      color: #333;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .footer a {
+      color: rgb(255, 90, 95);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      color: #d22e34;
+    }
+
+    h3 {
+      margin-top: 30px;
+      font-size: 22px;
+      color: rgb(255, 90, 95);
+      border-bottom: 2px solid #ffb6b9;
+      padding-bottom: 6px;
+    }
+
+    .college-item {
+      padding: 16px;
+      border: 1px solid #eee;
+      border-left: 6px solid rgb(255, 90, 95);
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background-color: #fff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+      text-align: left;
+    }
+
+    .college-item strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: #2c3e50;
+    }
+
+    .loading {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .spinner {
+      border: 4px solid #e0e0e0;
+      border-top: 4px solid rgb(255, 90, 95);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 26px;
+        padding: 15px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      button {
+        font-size: 15px;
+      }
+    }
