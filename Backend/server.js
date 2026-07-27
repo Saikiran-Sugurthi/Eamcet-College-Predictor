@@ -2,20 +2,32 @@ require('dotenv').config();
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+const predictLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 min window
+  max: 30,                  // 30 requests per IP per window
+  standardHeaders: true,    // sends RateLimit-* headers so client can see remaining quota
+  legacyHeaders: false,
+  message: { error: 'Too many requests, please try again later.' }
+});
+
+
 const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017';
 const dbName = process.env.DB_NAME || 'Eamcet_Cleaned_data';
 const client = new MongoClient(mongoUri);
 let db; // connected once at startup, reused across requests
+
 const phases = ['First_Phase', 'Second_Phase', 'Final_Phase'];
 function calculateRankRange(rank) {
   if (rank < 10000) return [Math.max(1, rank - 2000), rank + 2000];
   if (rank < 50000) return [rank - 5000, rank + 5000];
   return [rank - 10000, rank + 10000];
 }
-app.post('/api/predict-colleges', async (req, res) => {
+app.post('/api/predict-colleges',predictLimiter, async (req, res) => {
   try {
     const { rank, categoryGender, branchName } = req.body;
     const numericRank = Number(rank);
