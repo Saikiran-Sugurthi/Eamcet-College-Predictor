@@ -16,6 +16,7 @@ const predictLimiter = rateLimit({
 });
 
 
+
 const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017';
 const dbName = process.env.DB_NAME || 'Eamcet_Cleaned_data';
 const client = new MongoClient(mongoUri);

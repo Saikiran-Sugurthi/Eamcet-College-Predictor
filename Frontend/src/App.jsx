@@ -17,6 +17,19 @@ function App() {
       return;
     }
 
+    // Validate rank is a valid positive whole number
+    const rankNum = Number(rank);
+    if (!Number.isInteger(rankNum) || rankNum <= 0) {
+      alert('Please enter a valid rank (positive whole number)');
+      return;
+    }
+
+    // Sanity check upper bound, adjust based on actual max EAMCET rank range
+    if (rankNum > 500000) {
+      alert('Rank seems too high, please check and re-enter');
+      return;
+    }
+
     // Format the category and gender exactly as required by the backend API
     const categoryGender = `${category} \n${gender}`;
     
@@ -29,7 +42,7 @@ function App() {
       const response = await fetch('https://eamcet-college-predictor-api2.vercel.app/api/predict-colleges', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rank, categoryGender, branchName })
+        body: JSON.stringify({ rank: rankNum, categoryGender, branchName })
       });
 
       const data = await response.json();
@@ -56,6 +69,7 @@ function App() {
           <input 
             type="number" 
             id="rank" 
+            min="1"
             placeholder="Enter your rank" 
             value={rank} 
             onChange={(e) => setRank(e.target.value)} 
